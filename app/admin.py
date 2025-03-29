@@ -5,13 +5,14 @@ from app.keyboards import menu_admin, yes_no
 from app.database.requests import select_user, delete_user
 from aiogram.fsm.context import FSMContext
 from app.states import AdminExample
+from config import ADMIN_ID
 
 admin = Router()
 
 
 class Admin(Filter):
     def __init__(self):
-        self.admins = [428030603, 456]
+        self.admins = ADMIN_ID
 
     async def __call__(self, message: Message):
         return message.from_user.id in self.admins
