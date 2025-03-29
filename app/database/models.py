@@ -19,6 +19,7 @@ class User(Base):
     
     id: Mapped[int] = mapped_column(primary_key=True)
     tg_id = mapped_column(BigInteger)
+    full_name = mapped_column(String(100))
 
 
 async def async_main():

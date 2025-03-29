@@ -9,6 +9,7 @@ from app.admin import admin
 from config import TOKEN
 
 from app.database.models import async_main
+from app.middlewares import CounterMiddleware
 
 
 async def main():
@@ -19,6 +20,7 @@ async def main():
     dp.include_routers(user, admin)
     dp.startup.register(startup)
     dp.shutdown.register(shutdown)
+    dp.update.middleware(CounterMiddleware())
     
     await dp.start_polling(bot)
 
