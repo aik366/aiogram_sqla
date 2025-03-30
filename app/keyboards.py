@@ -16,7 +16,6 @@ def menu_user():
 
 def menu_admin():
     Builder = ReplyKeyboardBuilder()
-    Builder.add(KeyboardButton(text="➕ Добавить контакт"))
     Builder.add(KeyboardButton(text="📖 Показать контакты"))
     Builder.add(KeyboardButton(text="🗑 Удалить контакт"))
     Builder.add(KeyboardButton(text="🔎 Поиск контакта"))
@@ -37,6 +36,6 @@ def site_menu():
 
 def yes_no():
     Builder = InlineKeyboardBuilder()
-    Builder.add(InlineKeyboardButton(text="✅ Да", callback_data="yes"))
-    Builder.add(InlineKeyboardButton(text="✖️ Нет", callback_data="no"))
+    Builder.add(InlineKeyboardButton(text="✅ Подтвердить", callback_data="confirm_delete"))
+    Builder.add(InlineKeyboardButton(text="❌ Отменить", callback_data="cancel_delete"))
     return Builder.as_markup(resize_keyboard=True)
